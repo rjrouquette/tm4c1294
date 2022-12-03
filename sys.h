@@ -54,7 +54,7 @@ REGMAP_32 (DID0_MAP, {
     unsigned : 4;
     unsigned VER: 3;
 });
-#define DID0 (*(volatile union DID0_MAP *)0x400FE000)
+#define DID0 (*(const volatile union DID0_MAP *)0x400FE000)
 
 REGMAP_32 (DID1_MAP, {
     unsigned QUAL: 2;
@@ -67,7 +67,7 @@ REGMAP_32 (DID1_MAP, {
     unsigned FAM: 4;
     unsigned VER: 4;
 });
-#define DID1 (*(volatile union DID1_MAP *)0x400FE004)
+#define DID1 (*(const volatile union DID1_MAP *)0x400FE004)
 
 REGMAP_32 (RIS_MAP, {
     unsigned : 1;
@@ -139,6 +139,11 @@ struct UNIQUEID_BLOCK {
     uint32_t WORD[4];
 };
 #define UNIQUEID (*(volatile struct UNIQUEID_BLOCK *)0x400FEF20)
+
+REGMAP_32 (RCGCEEPROM_MAP, {
+    unsigned EN_EEPROM: 1;
+});
+#define RCGCEEPROM (*(volatile union RCGCEEPROM_MAP *)0x400FE658)
 
 unsigned RAM_size();
 unsigned EEPROM_size();
