@@ -47,6 +47,28 @@ REGMAP_32(FLASHCONF_MAP, {
 });
 #define FLASHCONF (*(volatile union FLASHCONF_MAP *)0x400FDFC8)
 
+REGMAP_32 (DID0_MAP, {
+    unsigned MINOR: 8;
+    unsigned MAJOR: 8;
+    unsigned CLASS: 8;
+    unsigned : 4;
+    unsigned VER: 3;
+});
+#define DID0 (*(volatile union DID0_MAP *)0x400FE000)
+
+REGMAP_32 (DID1_MAP, {
+    unsigned QUAL: 2;
+    unsigned ROHS: 1;
+    unsigned PKG: 2;
+    unsigned TEMP: 3;
+    unsigned : 5;
+    unsigned PINCOUNT: 3;
+    unsigned PARTNO: 8;
+    unsigned FAM: 4;
+    unsigned VER: 4;
+});
+#define DID1 (*(volatile union DID1_MAP *)0x400FE004)
+
 REGMAP_32 (RIS_MAP, {
     unsigned : 1;
     unsigned BORRIS: 1;
@@ -117,5 +139,9 @@ struct UNIQUEID_BLOCK {
     uint32_t WORD[4];
 };
 #define UNIQUEID (*(volatile struct UNIQUEID_BLOCK *)0x400FEF20)
+
+unsigned RAM_size();
+unsigned EEPROM_size();
+unsigned FLASH_size();
 
 #endif //TM4C_SYS_H
