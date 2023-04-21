@@ -142,7 +142,7 @@ int ISR_disable(void(*isr)(void));
 int ISR_priority(void(*isr)(void), uint8_t priority);
 
 // global interrupt disable/enable
-inline void cpsid() { __asm volatile("cpsid if"); }
-inline void cpsie() { __asm volatile("cpsie if"); }
+inline void __disable_irq() { __asm volatile("cpsid i"); }
+inline void __enable_irq() { __asm volatile("cpsie i"); }
 
 #endif //TM4C_INTERRUPTS_H
