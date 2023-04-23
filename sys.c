@@ -2,6 +2,7 @@
 // Created by robert on 12/3/22.
 //
 
+#include "eeprom.h"
 #include "sys.h"
 
 unsigned RAM_size() {
@@ -13,8 +14,7 @@ unsigned RAM_size() {
 }
 
 unsigned EEPROM_size() {
-    unsigned size = *(const uint32_t *) 0x400AF000;
-    size &= 0xffff;
+    unsigned size = EEPROM.SIZE.WORDCNT;
     size <<= 2;
     return size;
 }

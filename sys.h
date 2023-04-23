@@ -140,11 +140,6 @@ struct UNIQUEID_BLOCK {
 };
 #define UNIQUEID (*(volatile struct UNIQUEID_BLOCK *)0x400FEF20)
 
-REGMAP_32 (RCGCEEPROM_MAP, {
-    unsigned EN_EEPROM: 1;
-});
-#define RCGCEEPROM (*(volatile union RCGCEEPROM_MAP *)0x400FE658)
-
 unsigned RAM_size();
 unsigned EEPROM_size();
 unsigned FLASH_size();
