@@ -7,6 +7,8 @@
 #ifndef TM4C_INTERRUPTS_H
 #define TM4C_INTERRUPTS_H
 
+#include <stdint.h>
+
 #define ATTR_ISR __attribute__ ((interrupt ("IRQ")))
 
 // System Exception Handlers
