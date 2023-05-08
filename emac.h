@@ -843,4 +843,18 @@ uint16_t EMAC_MII_Read(volatile struct EMAC_MAP *emac, uint8_t address);
 
 void EMAC_MII_Write(volatile struct EMAC_MAP *emac, uint8_t address, uint16_t value);
 
+/**
+ * Get MAC address from EMAC address register
+ * @param macAddr EMAC address register
+ * @param macBytes MAC address (network byte-order)
+ */
+void EMAC_getMac(const volatile struct EMAC_MACADDR *macAddr, uint8_t *macBytes);
+
+/**
+ * Set MAC address in EMAC address register
+ * @param macAddr EMAC address register
+ * @param macBytes MAC address (network byte-order)
+ */
+void EMAC_setMac(volatile struct EMAC_MACADDR *macAddr, const uint8_t *macBytes);
+
 #endif //TM4C_EMAC_H

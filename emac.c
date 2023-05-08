@@ -24,3 +24,28 @@ uint16_t EMAC_MII_Read(volatile struct EMAC_MAP *emac, uint8_t address) {
     // return value
     return emac->MIIDATA.DATA;
 }
+
+void EMAC_getMac(const volatile struct EMAC_MACADDR *macAddr, uint8_t *macBytes) {
+    // get high bytes
+    macBytes[5] = (macAddr->HI.ADDR >> 8) & 0xFF;
+    macBytes[4] = (macAddr->HI.ADDR >> 0) & 0xFF;
+    // get low bytes
+    macBytes[3] = (macAddr->LO >> 24) & 0xFF;
+    macBytes[2] = (macAddr->LO >> 16) & 0xFF;
+    macBytes[1] = (macAddr->LO >> 8) & 0xFF;
+    macBytes[0] = (macAddr->LO >> 0) & 0xFF;
+}
+
+void EMAC_setMac(volatile struct EMAC_MACADDR *macAddr, const uint8_t *macBytes) {
+    uint32_t temp;
+    // set high bytes
+    temp = macBytes[5]; temp <<= 8;
+    temp |= macBytes[4];
+    macAddr->HI.ADDR = temp;
+    // set low bytes
+    temp = macBytes[3]; temp <<= 8;
+    temp |= macBytes[2]; temp <<= 8;
+    temp |= macBytes[1]; temp <<= 8;
+    temp |= macBytes[0];
+    macAddr->LO = temp;
+}
