@@ -175,7 +175,7 @@ PAGE_MAP (UART_MAP, {
     }) MIS;
 
     // offset 0x044
-    // UARTInterrupt Clear
+    // UART Interrupt Clear
     REGMAP_32(, {
             unsigned RI: 1;
             unsigned CTS: 1;
