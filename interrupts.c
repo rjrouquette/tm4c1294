@@ -4,7 +4,6 @@
  * @date 2022-04-13
  */
 
-#include <stdint.h>
 #include "interrupts.h"
 
 // stack pointer
