@@ -708,7 +708,7 @@ REGMAP_32 (PREPHY_MAP, {
 });
 #define PREPHY (*(volatile union PREPHY_MAP *)0x400FEA30)
 
-struct EMAC_RX_DESC {
+typedef struct EMAC_RX_DESC {
     REGMAP_32(, {
         unsigned ESA: 1;
         unsigned CE: 1;
@@ -758,10 +758,10 @@ struct EMAC_RX_DESC {
     uint32_t RDES5;
     uint32_t RTSL;
     uint32_t RTSH;
-};
+} EMAC_RX_DESC;
 _Static_assert(sizeof(struct EMAC_RX_DESC) == 32, "EMAC_RX_DESC must be 32 bytes");
 
-struct EMAC_TX_DESC {
+typedef struct EMAC_TX_DESC {
     REGMAP_32(, {
         unsigned DB: 1;
         unsigned UF: 1;
@@ -805,7 +805,7 @@ struct EMAC_TX_DESC {
     uint32_t TDES5;
     uint32_t TTSL;
     uint32_t TTSH;
-};
+} EMAC_TX_DESC;
 _Static_assert(sizeof(struct EMAC_TX_DESC) == 32, "EMAC_TX_DESC must be 32 bytes");
 
 #define MII_ADDR_EPHYBMCR     (0x00u)   // Ethernet PHY Basic Mode Control - MR0
