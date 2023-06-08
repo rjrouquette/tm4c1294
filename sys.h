@@ -28,6 +28,33 @@ REGMAP_32 (STCURRENT_MAP, {
 });
 #define STCURRENT (*(volatile union STCURRENT_MAP *)0xE000E018)
 
+REGMAP_32 (FAULTSTAT_MAP, {
+    unsigned IERR: 1;
+    unsigned DERR: 1;
+    unsigned : 1;
+    unsigned MUSTKE: 1;
+    unsigned MSTKE: 1;
+    unsigned MLSPERR: 1;
+    unsigned : 1;
+    unsigned MMARV: 1;
+    unsigned IBUS: 1;
+    unsigned PRECISE: 1;
+    unsigned IMPRE: 1;
+    unsigned BUSTKE: 1;
+    unsigned BSTKE: 1;
+    unsigned BLSPERR: 1;
+    unsigned : 1;
+    unsigned BFARV: 1;
+    unsigned UNDEF: 1;
+    unsigned INVSTAT: 1;
+    unsigned INVPC: 1;
+    unsigned NOCP: 1;
+    unsigned : 4;
+    unsigned UNALIGN: 1;
+    unsigned DIV0: 1;
+});
+#define FAULTSTAT (*(volatile union FAULTSTAT_MAP *)0xE000ED28)
+
 REGMAP_32 (CPAC_MAP, {
     unsigned : 20;
     unsigned CP10: 2;
