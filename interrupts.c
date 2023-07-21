@@ -166,7 +166,7 @@ void * volatile const isr_table[ISR_VECTOR_COUNT] = {
 };
 
 // Default ISR does nothing
-ATTR_ISR void ISR_Default(void) {
+void ISR_Default(void) {
     __asm volatile("nop");
 }
 
