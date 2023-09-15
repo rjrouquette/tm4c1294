@@ -7,6 +7,19 @@
 
 #include "register.h"
 
+#define GPTM_ICR_TATO (1u << 0)
+#define GPTM_ICR_CAM (1u << 1)
+#define GPTM_ICR_CAE (1u << 2)
+#define GPTM_ICR_RTC (1u << 3)
+#define GPTM_ICR_TAM (1u << 4)
+#define GPTM_ICR_DMAA (1u << 5)
+
+#define GPTM_ICR_TBTO (1u << 8)
+#define GPTM_ICR_CBM (1u << 9)
+#define GPTM_ICR_CBE (1u << 10)
+#define GPTM_ICR_TBM (1u << 11)
+#define GPTM_ICR_DMAB (1u << 13)
+
 REGMAP_32 (GPTM_MODE_MAP, {
     unsigned MR: 2;
     unsigned CMR: 1;
@@ -110,21 +123,7 @@ PAGE_MAP(GPTM_MAP, {
 
     // offset 0x024
     // GPTM Interrupt Clear
-    REGMAP_32(, {
-        unsigned TATO: 1;
-        unsigned CAM: 1;
-        unsigned CAE: 1;
-        unsigned RTC: 1;
-        unsigned TAM: 1;
-        unsigned DMAA: 1;
-        unsigned : 2;
-        unsigned TBTO: 1;
-        unsigned CBM: 1;
-        unsigned CBE: 1;
-        unsigned : 1;
-        unsigned TBM: 1;
-        unsigned DMAB: 1;
-    }) ICR;
+    uint32_t ICR;
 
     uint32_t TAILR;     // GPTM Timer A Interval Load
     uint32_t TBILR;     // GPTM Timer B Interval Load
