@@ -121,9 +121,8 @@ REGMAP_32 (RCGCEEPROM_MAP, {
 
 /**
  * Wait for EEPROM to complete current operation
- */
-__attribute__((always_inline))
-inline void EEPROM_wait() { while(EEPROM.DONE.WORKING) __asm volatile("nop"); }
+ */;
+void EEPROM_wait();
 
 void EEPROM_mass_erase();
 
