@@ -7,6 +7,12 @@
 #ifndef TM4C_ADC_H
 #define TM4C_ADC_H
 
+#ifdef __cplusplus
+extern "C" {
+#else
+#define static_assert _Static_assert
+#endif
+
 #include "register.h"
 #include "gpio.h"
 
@@ -177,7 +183,7 @@ struct ADC_SS_MAP {
         unsigned TSH7: 4;
     }) TSH;
 };
-_Static_assert(sizeof(struct ADC_SS_MAP) == 32, "ADC_SS_MAP must be 32 bytes");
+static_assert(sizeof(struct ADC_SS_MAP) == 32, "ADC_SS_MAP must be 32 bytes");
 
 PAGE_MAP (ADC_MAP, {
     // offset 0x000
@@ -374,5 +380,9 @@ REGMAP_32 (RCGCADC_MAP, {
     unsigned EN_ADC1: 1;
 });
 #define RCGCADC (*(volatile union RCGCADC_MAP *)0x400FE638)
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //TM4C_ADC_H

@@ -7,6 +7,12 @@
 #ifndef GPSDO_EEPROM_H
 #define GPSDO_EEPROM_H
 
+#ifdef __cplusplus
+extern "C" {
+#else
+#define static_assert _Static_assert
+#endif
+
 #include "register.h"
 
 #define EEPROM_DBGME_KEY (0xE37B0001)
@@ -135,5 +141,9 @@ void EEPROM_seek(int offset);
 uint32_t EEPROM_read();
 
 void EEPROM_write(uint32_t data);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //GPSDO_EEPROM_H
