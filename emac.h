@@ -7,6 +7,12 @@
 #ifndef TM4C_EMAC_H
 #define TM4C_EMAC_H
 
+#ifdef __cplusplus
+extern "C" {
+#else
+#define static_assert _Static_assert
+#endif
+
 #include "register.h"
 
 enum EMAC_PRELEN {
@@ -50,7 +56,7 @@ struct EMAC_MACADDR {
     }) HI;
     uint32_t LO;
 };
-_Static_assert(sizeof(struct EMAC_MACADDR) == 8, "EMAC_MACADDR must be 8 bytes");
+static_assert(sizeof(struct EMAC_MACADDR) == 8, "EMAC_MACADDR must be 8 bytes");
 
 PAGE_MAP (EMAC_MAP, {
     // offset 0x000
@@ -759,7 +765,7 @@ typedef struct EMAC_RX_DESC {
     uint32_t RTSL;
     uint32_t RTSH;
 } EMAC_RX_DESC;
-_Static_assert(sizeof(struct EMAC_RX_DESC) == 32, "EMAC_RX_DESC must be 32 bytes");
+static_assert(sizeof(struct EMAC_RX_DESC) == 32, "EMAC_RX_DESC must be 32 bytes");
 
 typedef struct EMAC_TX_DESC {
     REGMAP_32(, {
@@ -806,7 +812,7 @@ typedef struct EMAC_TX_DESC {
     uint32_t TTSL;
     uint32_t TTSH;
 } EMAC_TX_DESC;
-_Static_assert(sizeof(struct EMAC_TX_DESC) == 32, "EMAC_TX_DESC must be 32 bytes");
+static_assert(sizeof(struct EMAC_TX_DESC) == 32, "EMAC_TX_DESC must be 32 bytes");
 
 #define MII_ADDR_EPHYBMCR     (0x00u)   // Ethernet PHY Basic Mode Control - MR0
 #define MII_ADDR_EPHYBMSR     (0x01u)   // Ethernet PHY Basic Mode Status - MR1
@@ -856,5 +862,9 @@ void EMAC_getMac(const volatile struct EMAC_MACADDR *macAddr, uint8_t *macBytes)
  * @param macBytes MAC address (network byte-order)
  */
 void EMAC_setMac(volatile struct EMAC_MACADDR *macAddr, const uint8_t *macBytes);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //TM4C_EMAC_H

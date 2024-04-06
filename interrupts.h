@@ -7,6 +7,10 @@
 #ifndef TM4C_INTERRUPTS_H
 #define TM4C_INTERRUPTS_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdint.h>
 
 // System Exception Handlers
@@ -146,5 +150,9 @@ int ISR_priority(void(*isr)(void), uint8_t priority);
 // global interrupt disable/enable
 #define __disable_irq() __asm volatile("cpsid i" ::: "memory")
 #define __enable_irq() __asm volatile("cpsie i" ::: "memory")
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //TM4C_INTERRUPTS_H
