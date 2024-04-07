@@ -7,6 +7,10 @@
 #ifndef TM4C_SYS_H
 #define TM4C_SYS_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "register.h"
 
 REGMAP_32 (STCTRL_MAP, {
@@ -170,5 +174,9 @@ struct UNIQUEID_BLOCK {
 unsigned RAM_size();
 unsigned EEPROM_size();
 unsigned FLASH_size();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //TM4C_SYS_H
