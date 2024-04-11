@@ -171,9 +171,11 @@ struct UNIQUEID_BLOCK {
 };
 #define UNIQUEID (*(volatile struct UNIQUEID_BLOCK *)0x400FEF20)
 
+unsigned RAM_used();
 unsigned RAM_size();
 unsigned EEPROM_size();
 unsigned FLASH_size();
+unsigned FLASH_used();
 
 #ifdef __cplusplus
 }
