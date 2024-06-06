@@ -7,13 +7,13 @@
 #ifndef GPSDO_EEPROM_H
 #define GPSDO_EEPROM_H
 
+#include "register.h"
+
 #ifdef __cplusplus
 extern "C" {
 #else
 #define static_assert _Static_assert
 #endif
-
-#include "register.h"
 
 #define EEPROM_DBGME_KEY (0xE37B0001)
 

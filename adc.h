@@ -7,14 +7,14 @@
 #ifndef TM4C_ADC_H
 #define TM4C_ADC_H
 
+#include "register.h"
+#include "gpio.h"
+
 #ifdef __cplusplus
 extern "C" {
 #else
 #define static_assert _Static_assert
 #endif
-
-#include "register.h"
-#include "gpio.h"
 
 enum ADC_SS_TRIGGER {
     ADC_SS_TRIG_SOFT = 0x0,     // Software Triggered

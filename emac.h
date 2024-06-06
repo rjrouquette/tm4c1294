@@ -7,13 +7,13 @@
 #ifndef TM4C_EMAC_H
 #define TM4C_EMAC_H
 
+#include "register.h"
+
 #ifdef __cplusplus
 extern "C" {
 #else
 #define static_assert _Static_assert
 #endif
-
-#include "register.h"
 
 enum EMAC_PRELEN {
     EMAC_PRELEN_7BYTES = 0x0,

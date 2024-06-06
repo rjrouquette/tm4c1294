@@ -7,11 +7,11 @@
 #ifndef TM4C_SYS_H
 #define TM4C_SYS_H
 
+#include "register.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include "register.h"
 
 REGMAP_32 (STCTRL_MAP, {
     unsigned ENABLE: 1;
