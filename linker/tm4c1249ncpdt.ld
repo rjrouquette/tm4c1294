@@ -25,6 +25,8 @@ SECTIONS
     {
         _data = .;
         *(vtable)
+        *(.ARM.exidx*)
+        *(.gnu.linkonce.armexidx.*)
         *(.data*)
         _edata = .;
     } > SRAM
