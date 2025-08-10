@@ -4,8 +4,8 @@
  * @date 2023-04-23
  */
 
-#ifndef GPSDO_EEPROM_H
-#define GPSDO_EEPROM_H
+#ifndef TM4C_EEPROM_H
+#define TM4C_EEPROM_H
 
 #include "register.h"
 
@@ -146,4 +146,4 @@ void EEPROM_write(uint32_t data);
 }
 #endif
 
-#endif //GPSDO_EEPROM_H
+#endif //TM4C_EEPROM_H

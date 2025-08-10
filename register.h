@@ -1,9 +1,11 @@
-//
-// Created by robert on 4/26/22.
-//
+/**
+* Register Map Macros
+ * @author Robert J. Rouquette
+ * @date 2022-04-26
+ */
 
-#ifndef GPSDO_REGISTER_H
-#define GPSDO_REGISTER_H
+#ifndef TM4C_REGISTER_H
+#define TM4C_REGISTER_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -21,4 +23,4 @@ extern "C" {
 }
 #endif
 
-#endif //GPSDO_REGISTER_H
+#endif //TM4C_REGISTER_H

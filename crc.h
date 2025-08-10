@@ -1,6 +1,8 @@
-//
-// Created by robert on 5/12/22.
-//
+/**
+ * CRC Register Mapping
+ * @author Robert J. Rouquette
+ * @date 2022-05-12
+ */
 
 #ifndef TM4C_CRC_H
 #define TM4C_CRC_H
