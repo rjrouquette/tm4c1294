@@ -162,8 +162,37 @@ PAGE_MAP(GPTM_MAP, {
     uint32_t TAPS;      // GPTM Timer A Prescale Snapshot
     uint32_t TBPS;      // GPTM Timer B Prescale Snapshot
     char _reserved_1[0x008];
-    uint32_t DMAEV;     // GPTM DMA Event
-    uint32_t ADCEV;     // GPTM ADC Event
+
+    // offset 0x6C
+    // GPTM DMA Event
+    REGMAP_32(, {
+        unsigned TATO: 1;
+        unsigned CAM: 1;
+        unsigned CAE: 1;
+        unsigned RTC: 1;
+        unsigned TAM: 1;
+        unsigned : 3;
+        unsigned TBTO: 1;
+        unsigned CBM: 1;
+        unsigned CBE: 1;
+        unsigned TBM: 1;
+    }) DMAEV;
+
+    // offset 0x70
+    // GPTM ADC Event
+    REGMAP_32(, {
+        unsigned TATO: 1;
+        unsigned CAM: 1;
+        unsigned CAE: 1;
+        unsigned RTC: 1;
+        unsigned TAM: 1;
+        unsigned : 3;
+        unsigned TBTO: 1;
+        unsigned CBM: 1;
+        unsigned CBE: 1;
+        unsigned TBM: 1;
+    }) ADCEV;
+
     char _reserved_2[0xF4C];
     // offset 0xFC0
     uint32_t PP;  // Timer Peripheral Property
