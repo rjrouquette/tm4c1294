@@ -146,6 +146,15 @@ REGMAP_32 (MEMTIM0_MAP, {
 });
 #define MEMTIM0 (*(volatile union MEMTIM0_MAP *)0x400FE0C0)
 
+REGMAP_32 (DIVSCLK_MAP, {
+    unsigned DIV: 8;
+    unsigned : 8;
+    unsigned SRC: 2;
+    unsigned : 13;
+    unsigned EN: 1;
+});
+#define DIVSCLK (*(volatile union DIVSCLK_MAP *)0x400FE148)
+
 REGMAP_32 (PLLFREQ0_MAP, {
     unsigned MINT: 10;
     unsigned MFRAC: 10;
